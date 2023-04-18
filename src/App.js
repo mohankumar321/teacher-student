@@ -30,6 +30,12 @@ function App() {
       teacher={teacher}
        setTeacher={setTeacher}/></Route>
 
+       <Route path="/dashboard/editstudent"><EditStudents
+       
+       Studdata={Studdata}
+       setStuddata={setStuddata}
+       /></Route>
+
       </Switch>
 
 
