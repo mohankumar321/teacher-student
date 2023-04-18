@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Dashboard from './compenent/dashboard';
+import StudentsDetails from './compenent/student';
+import { useState } from 'react';
+import { Studentsdata, Teachersdata } from './Data/data';
+import TeachersDetails from './compenent/teacher';
+import EditStudents from './compenent/editstudent';
+
 
 function App() {
+
+  const [Studdata,setStuddata]=useState(Studentsdata);
+  const [teacher,setTeacher]=useState(Teachersdata)
   return (
+
+
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Switch>
+
+        <Route  exact path="/"><Dashboard/></Route>
+
+       <Route path="/dashboard/students"><StudentsDetails
+       Studdata={Studdata}
+       setStuddata={setStuddata}/></Route>
+
+<Route path="/dashboard/teachers"><TeachersDetails
+      teacher={teacher}
+       setTeacher={setTeacher}/></Route>
+
+      </Switch>
+
+
+
+
     </div>
   );
 }
